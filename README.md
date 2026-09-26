@@ -69,26 +69,30 @@ Cloud-Connected-Smart-Plant-Care/
 ```bash
 cd Cloud-Connected-Smart-Plant-Care
 pip install -r backend/requirements.txt
+```
 
 ### 2. Run Backend (Terminal 1)
+```bash
 cd backend
 uvicorn app:app --reload --port 8000
+```
 
 ### 3. Run Sensor Simulator (Terminal 2)
+```bash
 python simulator/sensor_sim.py
+```
 
 ### 4. Open Dashboard
-Open frontend/index.html in the browser.
+Open `frontend/index.html` in the browser.
 
 ## 🌐 REST API Endpoints
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/sensors/data` | Ingests sensor telemetry & evaluates threshold logic |
-| `GET` | `/api/devices/{id}/latest` | Returns latest sensor readings & actuator state |
-| `GET` | `/api/devices/{id}/history` | Retrieves chronological historical readings for charts |
-| `PUT` | `/api/devices/{id}/threshold` | Updates the active moisture threshold value |
-| `POST` | `/api/devices/{id}/water` | Triggers manual actuation override |
+* **POST** `/api/sensors/data` — Ingests sensor telemetry & evaluates threshold logic
+* **GET** `/api/devices/{id}/latest` — Returns latest sensor readings & actuator state
+* **GET** `/api/devices/{id}/history` — Retrieves chronological historical readings for charts
+* **PUT** `/api/devices/{id}/threshold` — Updates the active moisture threshold value
+* **POST** `/api/devices/{id}/water` — Triggers manual actuation override
 
-📄 License
+## 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
