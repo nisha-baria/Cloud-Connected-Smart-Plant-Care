@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Smart Plant Care Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN for real-time graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌱 Cloud Smart Plant Care System</h1>
+      <div class="device-badge">
+        <span>Device: <strong>PLANT-001</strong></span>
+        <span class="status-indicator">Status: <strong id="online-status">Checking...</strong></span>
+      </div>
+    </header>
+
+    <!-- Metrics Grid -->
+    <div class="grid">
+      <div class="card">
+        <h3>Soil Moisture</h3>
+        <p class="val"><span id="val-soil">--</span>%</p>
+        <span class="sub" id="sub-health">Optimal</span>
+      </div>
+      <div class="card">
+        <h3>Temperature</h3>
+        <p class="val"><span id="val-temp">--</span>°C</p>
+        <span class="sub">Ambient</span>
+      </div>
+      <div class="card">
+        <h3>Humidity</h3>
+        <p class="val"><span id="val-hum">--</span>%</p>
+        <span class="sub">Air Moisture</span>
+      </div>
+      <div class="card">
+        <h3>Pump State</h3>
+        <p class="val" id="val-pump">OFF</p>
+        <span class="sub" id="pump-sub">Idle</span>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Graph -->
+    <div class="chart-section">
+      <h3>📈 Real-Time Soil Moisture Trend</h3>
+      <canvas id="moistureChart" height="90"></canvas>
+    </div>
+
+    <!-- Actuation & Threshold Controls -->
+    <div class="controls-panel">
+      <button id="btn-water" class="btn-primary">💧 Manual Water Now</button>
+      <div class="threshold-group">
+        <label for="input-threshold">Moisture Threshold (%):</label>
+        <input type="number" id="input-threshold" value="30" min="10" max="90" />
+        <button id="btn-save-thresh" class="btn-secondary">Update</button>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
